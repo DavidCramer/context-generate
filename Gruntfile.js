@@ -59,7 +59,7 @@ module.exports = function (grunt) {
                     },
                     {
                         from: "%textdomain%",
-                        to: "<%= pkg.textdomain %>"
+                        to: "<%= pkg.slug %>"
                     },
                     {
                         from: 'CNTXT',

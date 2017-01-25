@@ -2,10 +2,10 @@
 
   "namespace"	: "myplugin",
   "main_class"	: "My_Plugin",
+  "slug"	    : "my-plugin",
   "plugin_name"	: "My Plugin",
   "description"	: "My Plugins Description",
   "prefix"		: "MYPLGN",
-  "textdomain"	: "my-plugin",
   "version"		: "1.0.0",
   "author"		: "David Cramer",
   "author_url"	: "http://cramer.co.za",
