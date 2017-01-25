@@ -50,7 +50,7 @@ module.exports = function (grunt) {
                         to: "<%= pkg.plugin_url %>"
                     },
                     {
-                        from: "%version%",
+                        from: "1.0.0",
                         to: "<%= pkg.version %>"
                     },
                     {
