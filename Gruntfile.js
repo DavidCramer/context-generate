@@ -66,7 +66,7 @@ module.exports = function (grunt) {
                         to: "<%= pkg.namespace %>"
                     },
                     {
-                        from: 'UIX',
+                        from: 'CNTXT',
                         to: "<%= pkg.prefix %>"
                     }
                 ]
