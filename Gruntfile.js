@@ -26,19 +26,11 @@ module.exports = function (grunt) {
                 overwrite: true,
                 replacements: [
                     {
-                        from: "%namespace%",
+                        from: "context",
                         to: "<%= pkg.namespace %>"
                     },
                     {
-                        from: "%slug%",
-                        to: "<%= pkg.slug %>"
-                    },
-                    {
-                        from: "%prefix%",
-                        to: "<%= pkg.prefix %>"
-                    },
-                    {
-                        from: "%name%",
+                        from: "Context",
                         to: "<%= pkg.plugin_name %>"
                     },
                     {
@@ -50,20 +42,20 @@ module.exports = function (grunt) {
                         to: "<%= pkg.author %>"
                     },
                     {
-                        from: "%url%",
-                        to: "<%= pkg.url %>"
+                        from: "%author_url%",
+                        to: "<%= pkg.author_url %>"
+                    },
+                    {
+                        from: "%plugin_url%",
+                        to: "<%= pkg.plugin_url %>"
                     },
                     {
                         from: "%version%",
                         to: "<%= pkg.version %>"
                     },
                     {
-                        from: "text-domain",
+                        from: "%textdomain%",
                         to: "<%= pkg.textdomain %>"
-                    },
-                    {
-                        from: 'context',
-                        to: "<%= pkg.namespace %>"
                     },
                     {
                         from: 'CNTXT',
