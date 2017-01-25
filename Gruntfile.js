@@ -27,11 +27,11 @@ module.exports = function (grunt) {
                 replacements: [
                     {
                         from: "context",
-                        to: "<%= pkg.namespace %>"
+                        to: "<%= pkg.plugin_name.toLocaleLowerCase().replace(/[^a-z0-9]/gi, '_' ) %>"
                     },
                     {
                         from: "Context_Core",
-                        to: "<%= pkg.main_class %>"
+                        to: "<%= pkg.plugin_name.replace(/[^a-z0-9]/gi, '_' ) %>"
                     },
                     {
                         from: "Context",
@@ -59,7 +59,7 @@ module.exports = function (grunt) {
                     },
                     {
                         from: "%textdomain%",
-                        to: "<%= pkg.slug %>"
+                        to: "<%= pkg.plugin_name.toLocaleLowerCase().replace(/[^a-z0-9]/gi, '-' ) %>"
                     },
                     {
                         from: 'CNTXT',
