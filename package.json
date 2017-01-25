@@ -1,6 +1,7 @@
 {
 
   "namespace"	: "myplugin",
+  "main_class"	: "My_Plugin",
   "plugin_name"	: "My Plugin",
   "description"	: "My Plugins Description",
   "prefix"		: "MYPLGN",

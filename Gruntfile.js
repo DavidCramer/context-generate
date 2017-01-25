@@ -30,6 +30,10 @@ module.exports = function (grunt) {
                         to: "<%= pkg.namespace %>"
                     },
                     {
+                        from: "Context_Core",
+                        to: "<%= pkg.main_class %>"
+                    },
+                    {
                         from: "Context",
                         to: "<%= pkg.plugin_name %>"
                     },
