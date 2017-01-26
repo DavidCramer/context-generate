@@ -26,15 +26,19 @@ module.exports = function (grunt) {
                 overwrite: true,
                 replacements: [
                     {
-                        from: "context",
+                        from: "context plugin",
+                        to: "<%= pkg.plugin_name.toLocaleLowerCase() %>"
+                    },
+                    {
+                        from: "context_plugin",
                         to: "<%= pkg.plugin_name.toLocaleLowerCase().replace(/[^a-z0-9]/gi, '_' ) %>"
                     },
                     {
-                        from: "Context_Core",
+                        from: "Context_Plugin",
                         to: "<%= pkg.plugin_name.replace(/[^a-z0-9]/gi, '_' ) %>"
                     },
                     {
-                        from: "Context",
+                        from: "Context Plugin",
                         to: "<%= pkg.plugin_name %>"
                     },
                     {
@@ -56,6 +60,10 @@ module.exports = function (grunt) {
                     {
                         from: "1.0.0",
                         to: "<%= pkg.version %>"
+                    },
+                    {
+                        from: "context-plugin",
+                        to: "<%= pkg.plugin_name.toLocaleLowerCase().replace(/[^a-z0-9]/gi, '-' ) %>"
                     },
                     {
                         from: "%textdomain%",
