@@ -18,6 +18,9 @@ module.exports = function (grunt) {
             },
             build: {
                 command: "grunt --slug=<%= pkg.namespace %> --base ./context-install --gruntfile ./context-install/GruntFile.js default"
+            },
+            setup: {
+                command: "grunt"
             }
         },
         replace : {
@@ -89,6 +92,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks( 'grunt-contrib-clean' );
 
     //register default task
-    grunt.registerTask( 'default', [ 'gitclone', 'shell', 'clean', 'replace' ] );
+    grunt.registerTask( 'default', [ 'gitclone', 'shell:install', 'shell:build', 'clean', 'replace', 'shell:setup' ] );
 
 };
