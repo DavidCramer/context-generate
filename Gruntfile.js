@@ -89,6 +89,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks( 'grunt-contrib-clean' );
 
     //register default task
-    grunt.registerTask( 'context', [ 'gitclone', 'shell', 'clean', 'replace' ] );
+    grunt.registerTask( 'default', [ 'gitclone', 'shell', 'clean', 'replace' ] );
 
 };
