@@ -25,7 +25,7 @@ module.exports = function (grunt) {
         },
         replace : {
             plugin_file: {
-                src: [ '*.php', 'includes/**/*.php', 'classes/**/*.php','assets/**/*.css','assets/**/*.js','languages/**/*.po', ],
+                src: [ '*.neon', '*.php', 'includes/**/*.php', 'classes/**/*.php','assets/**/*.css','assets/**/*.js','languages/**/*.po', ],
                 overwrite: true,
                 replacements: [
                     {
