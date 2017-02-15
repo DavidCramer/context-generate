@@ -25,7 +25,6 @@
     "grunt-contrib-cssmin": "~0.6.2"
   },
   "scripts"		: {
-    "install" : "grunt",
-    "docs" : "grunt docs"
+    "install" : "grunt"
   }
 }
