@@ -46,10 +46,10 @@ module.exports = function (grunt) {
                         dest: 'includes/'
                     },
                     {
-                        expand: true,
-                        cwd: './context-install/classes/',
-                        src: '**',
-                        dest: 'classes/'
+                        expand: false,
+                        cwd: './',
+                        src: 'context-install/classes/class-context-plugin.php',
+                        dest: "classes/class-<%= pkg.plugin_name.toLocaleLowerCase().replace(/[^a-z0-9]/gi, '-' ) %>.php"
                     },
                     {
                         expand: true,
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
                         cwd: './',
                         src: 'context-install/installed.js',
                         dest: 'Gruntfile.js'
-                    }
+                    },
                 ]
             }
         },
