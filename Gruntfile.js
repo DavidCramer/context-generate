@@ -2,7 +2,7 @@ module.exports = function (grunt) {
     // Project configuration.
 
     grunt.initConfig({
-        pkg     : grunt.file.readJSON( 'package.json' ),
+        pkg: grunt.file.readJSON('package.json'),
         gitclone: {
             clone: {
                 options: {
@@ -12,20 +12,63 @@ module.exports = function (grunt) {
                 }
             }
         },
-        shell: {
-            install: {
-                command: 'npm install --prefix ./context-install'
-            },
-            build: {
-                command: "grunt --slug=<%= pkg.namespace %> --base ./context-install --gruntfile ./context-install/GruntFile.js default"
-            },
-            setup: {
-                command: "grunt"
+        copy: {
+            main: {
+                files: [
+                    {
+                        expand: false,
+                        cwd: './',
+                        src: 'context-install/context-plugin-bootstrap.php',
+                        dest: "<%= pkg.plugin_name.toLocaleLowerCase().replace(/[^a-z0-9]/gi, '-') %>-bootstrap.php"
+                    },
+                    {
+                        expand: false,
+                        cwd: './',
+                        src: 'context-install/context-plugin.php',
+                        dest: "<%= pkg.plugin_name.toLocaleLowerCase().replace(/[^a-z0-9]/gi, '-' ) %>.php"
+                    },
+                    {
+                        expand: false,
+                        cwd: './',
+                        src: 'context-install/composer.json',
+                        dest: "composer.json"
+                    },
+                    {
+                        expand: false,
+                        cwd: './',
+                        src: 'context-install/apigen.neon',
+                        dest: "apigen.neon"
+                    },
+                    {
+                        expand: true,
+                        cwd: './context-install/includes/',
+                        src: '**',
+                        dest: 'includes/'
+                    },
+                    {
+                        expand: true,
+                        cwd: './context-install/classes/',
+                        src: '**',
+                        dest: 'classes/'
+                    },
+                    {
+                        expand: true,
+                        cwd: './context-install/languages/',
+                        src: '**',
+                        dest: 'languages/'
+                    },
+                    {
+                        expand: false,
+                        cwd: './',
+                        src: 'context-install/installed.js',
+                        dest: 'Gruntfile.js'
+                    }
+                ]
             }
         },
-        replace : {
+        replace: {
             plugin_file: {
-                src: [ '*.neon', '*.php', 'includes/**/*.php', 'classes/**/*.php','assets/**/*.css','assets/**/*.js','languages/**/*.po', ],
+                src: ['*.neon', '*.php', 'includes/**/*.php', 'classes/**/*.php', 'assets/**/*.css', 'assets/**/*.js', 'languages/**/*.po',],
                 overwrite: true,
                 replacements: [
                     {
@@ -85,13 +128,13 @@ module.exports = function (grunt) {
     });
 
     //load modules
-    grunt.loadNpmTasks( 'grunt-shell');
-    grunt.loadNpmTasks( 'grunt-contrib-copy' );
-    grunt.loadNpmTasks( 'grunt-git' );
-    grunt.loadNpmTasks( 'grunt-text-replace' );
-    grunt.loadNpmTasks( 'grunt-contrib-clean' );
+    grunt.loadNpmTasks('grunt-shell');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-git');
+    grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
     //register default task
-    grunt.registerTask( 'default', [ 'gitclone', 'shell:install', 'shell:build', 'clean', 'replace', 'shell:setup' ] );
+    grunt.registerTask('default', ['gitclone', 'copy', 'clean', 'replace']);
 
 };
